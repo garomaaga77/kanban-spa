@@ -1,16 +1,89 @@
-# React + Vite
+# Kanban SPA – Group Project
+### Project Description
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a Single Page Application (SPA) developed using React that implements a Kanban-based task management system. The application allows users to organize tasks visually across different workflow stages using the Kanban methodology.
 
-Currently, two official plugins are available:
+The project was developed as a group assignment to practice SPA development, task management using Kanban, and collaborative work with GitHub
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#### Project Objectives
 
-## React Compiler
+Develop a functional Single Page Application
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Apply the Kanban methodology during development
 
-## Expanding the ESLint configuration
+Enable task creation and management
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Implement drag-and-drop task movement
+
+Ensure data persistence using browser storage
+
+Maintain an active Kanban board throughout the project
+
+### Technologies Used
+
+HTML5
+
+CSS3
+
+JavaScript (ES6+)
+
+React
+
+Vite
+
+Git & GitHub
+
+GitHub Projects (Kanban Board)
+
+### Application Features
+
+Three Kanban columns: To Do, In Progress, Done
+
+Task cards displayed inside columns
+
+Drag & drop functionality for moving tasks between columns
+
+Persistent task storage using localStorage
+
+Responsive and user-friendly interface
+
+Single Page Application architecture
+
+# Project Structure
+kanban-spa/
+├── src/
+│   ├── components/
+│   │   ├── Board.jsx
+│   │   ├── Column.jsx
+│   │   └── Card.jsx
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+├── public/
+├── package.json
+├── vite.config.js
+└── README.md
+
+# Testing
+
+The application was tested using manual functional and mobile ddevice testing. Core features such as task creation, drag & drop functionality, and data persistence were verified to work correctly across multiple test scenarios.
+
+# Kanban Methodology
+
+The project development followed the Kanban methodology, using a GitHub Projects board with the following columns:
+
+To Do
+
+In Progress
+
+Done
+
+Tasks were moved across columns as development progressed, ensuring transparency and effective task management.
+
+### Team Collaboration
+
+The project was developed collaboratively using GitHub. All group members were added as collaborators to the repository and actively participated in development and task management.
+
+# License
+
+This project was developed for educational purposes as part of a university assignment.
