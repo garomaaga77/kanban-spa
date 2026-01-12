@@ -1,31 +1,31 @@
-import { useState } from "react";
 import Card from "./Card";
 
-export default function Column({ title }) {
-  const [cards, setCards] = useState([]);
+export default function Column({ id, title, tasks, moveTask }) {
+  const allowDrop = e => {
+    e.preventDefault();
+  };
 
-  const addCard = () => {
-    const text = prompt("Enter task name");
-    if (text) {
-      setCards([...cards, text]);
-    }
+  const onDrop = e => {
+    const task = e.dataTransfer.getData("task");
+    const from = e.dataTransfer.getData("from");
+    moveTask(task, from, id);
   };
 
   return (
     <div
+      onDragOver={allowDrop}
+      onDrop={onDrop}
       style={{
         border: "1px solid #aaa",
         padding: "10px",
         width: "220px",
-        minHeight: "200px"
+        minHeight: "250px"
       }}
     >
       <h2>{title}</h2>
 
-      <button onClick={addCard}>+ Add task</button>
-
-      {cards.map((card, index) => (
-        <Card key={index} title={card} />
+      {tasks.map(task => (
+        <Card key={task} title={task} columnId={id} />
       ))}
     </div>
   );
