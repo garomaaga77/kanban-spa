@@ -45,7 +45,8 @@ export default function Board() {
   };
 
   return (
-    <div style={{ display: "flex", gap: "16px" }}>
+    <div className="board">
+
       {Object.entries(columns).map(([key, column]) => (
         <Column
           key={key}

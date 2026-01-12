@@ -6,15 +6,9 @@ export default function Card({ title, columnId }) {
 
   return (
     <div
+      className="card"
       draggable
       onDragStart={onDragStart}
-      style={{
-        background: "#f4f5f7",
-        padding: "8px",
-        marginBottom: "8px",
-        borderRadius: "4px",
-        cursor: "grab"
-      }}
     >
       {title}
     </div>
