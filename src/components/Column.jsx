@@ -1,4 +1,8 @@
+import Card from "./Card";
+
 export default function Column({ title }) {
+  const cards = ["Task A", "Task B"];
+
   return (
     <div
       style={{
@@ -9,6 +13,10 @@ export default function Column({ title }) {
       }}
     >
       <h2>{title}</h2>
+
+      {cards.map(card => (
+        <Card key={card} title={card} />
+      ))}
     </div>
   );
 }
