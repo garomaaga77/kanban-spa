@@ -1,7 +1,15 @@
+import { useState } from "react";
 import Card from "./Card";
 
 export default function Column({ title }) {
-  const cards = ["Task A", "Task B"];
+  const [cards, setCards] = useState([]);
+
+  const addCard = () => {
+    const text = prompt("Enter task name");
+    if (text) {
+      setCards([...cards, text]);
+    }
+  };
 
   return (
     <div
@@ -14,8 +22,10 @@ export default function Column({ title }) {
     >
       <h2>{title}</h2>
 
-      {cards.map(card => (
-        <Card key={card} title={card} />
+      <button onClick={addCard}>+ Add task</button>
+
+      {cards.map((card, index) => (
+        <Card key={index} title={card} />
       ))}
     </div>
   );
