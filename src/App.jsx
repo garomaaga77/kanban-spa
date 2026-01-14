@@ -1,5 +1,4 @@
 import Board from "./components/Board";
-import "./index.css";
 
 export default function App() {
   return (
@@ -9,4 +8,5 @@ export default function App() {
     </div>
   );
 }
+
 

@@ -1,29 +1,57 @@
+import { useState } from "react";
 import Card from "./Card";
 
-export default function Column({ id, title, tasks, moveTask }) {
+export default function Column({
+  id,
+  title,
+  tasks,
+  addTask,
+  deleteTask,
+  editTask,
+  moveTask
+}) {
+  const [text, setText] = useState("");
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    addTask(id, text);
+    setText("");
+  };
+
   const allowDrop = e => {
     e.preventDefault();
   };
 
   const onDrop = e => {
-    const task = e.dataTransfer.getData("task");
-    const from = e.dataTransfer.getData("from");
-    moveTask(task, from, id);
+    const taskId = e.dataTransfer.getData("taskId");
+    const fromColumnId = e.dataTransfer.getData("fromColumnId");
+    moveTask(taskId, fromColumnId, id);
   };
 
   return (
-    <div
-      className="column"
-      onDragOver={allowDrop}
-      onDrop={onDrop}
-    >
-      <h2>{title}</h2>
+    <div className={`column ${id}`} onDragOver={allowDrop} onDrop={onDrop}>
+      <h2>
+        {title}
+        <span className={`badge ${id}`}>{title}</span>
+      </h2>
+
+      {/* ✅ Input field instead of prompt */}
+      <form onSubmit={handleSubmit}>
+        <input
+          value={text}
+          onChange={e => setText(e.target.value)}
+          placeholder="Add a task..."
+          className="taskInput"
+        />
+      </form>
 
       {tasks.map(task => (
         <Card
-          key={task}
-          title={task}
+          key={task.id}
+          task={task}
           columnId={id}
+          deleteTask={deleteTask}
+          editTask={editTask}
         />
       ))}
     </div>

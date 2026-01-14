@@ -1,69 +1,196 @@
 * {
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
 body {
   margin: 0;
-  padding: 0;
-  background-color: #f4f5f7;
+  background: #f5f7fb;
+  color: #1f2937;
 }
 
 .app {
-  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 24px;
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 20px;
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  color: #111827;
 }
 
+/* Board */
 .board {
   display: flex;
   gap: 20px;
   justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
-/* Column styling */
+/* Column base */
 .column {
-  background-color: #ffffff;
-  padding: 15px;
-  width: 260px;
-  min-height: 350px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background: white;
+  border-radius: 14px;
+  padding: 16px;
+  width: 320px;
+  min-height: 420px;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+  transition: transform 0.2s ease;
+}
+
+.column:hover {
+  transform: translateY(-3px);
 }
 
 .column h2 {
-  text-align: center;
-  margin-top: 0;
+  margin: 0;
+  padding-bottom: 12px;
+  font-size: 22px;
+  font-weight: 800;
+  border-bottom: 2px solid #f3f4f6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Card styling */
-.card {
-  background-color: #e3e4e6;
+/* ✅ Column Colors */
+.column.todo {
+  border-top: 6px solid #ef4444;
+}
+
+.column.progress {
+  border-top: 6px solid #f59e0b;
+}
+
+.column.done {
+  border-top: 6px solid #22c55e;
+}
+
+/* ✅ Badge */
+.badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  color: white;
+}
+
+.badge.todo {
+  background: #ef4444;
+}
+
+.badge.progress {
+  background: #f59e0b;
+}
+
+.badge.done {
+  background: #22c55e;
+}
+
+/* Input */
+.taskInput {
+  width: 100%;
   padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  outline: none;
+}
+
+.taskInput:focus {
+  border-color: #2563eb;
+}
+
+/* Card */
+.card {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  padding: 10px;
+  border-radius: 10px;
   margin-bottom: 10px;
-  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
   cursor: grab;
+  transition: 0.2s ease;
+}
+
+.card:hover {
+  background: #eef2ff;
+  border-color: #c7d2fe;
+  transform: scale(1.02);
 }
 
 .card:active {
   cursor: grabbing;
 }
 
-/* Button */
-button {
+.cardRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Edit input inside card */
+.editInput {
   width: 100%;
-  padding: 6px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  outline: none;
   margin-bottom: 10px;
+}
+
+/* Buttons */
+button {
   border: none;
-  border-radius: 4px;
-  background-color: #0052cc;
-  color: white;
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-weight: 700;
   cursor: pointer;
+  transition: 0.2s ease;
 }
 
 button:hover {
-  background-color: #003d99;
+  opacity: 0.9;
+}
+
+.cardButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.cardButtonsSmall {
+  display: flex;
+  gap: 6px;
+}
+
+/* Button Colors */
+.btnSave {
+  background: #16a34a;
+  color: white;
+}
+
+.btnCancel {
+  background: #6b7280;
+  color: white;
+}
+
+.btnEdit {
+  background: #f59e0b;
+  color: white;
+  padding: 6px 10px;
+}
+
+.btnDelete {
+  background: #dc2626;
+  color: white;
+  padding: 6px 10px;
 }
