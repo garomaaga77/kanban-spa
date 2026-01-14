@@ -31,7 +31,7 @@ export default function Column({
   return (
     <div className={`column ${id}`} onDragOver={allowDrop} onDrop={onDrop}>
       <h2>
-        {title}
+        {title} <span className="counter">({tasks.length})</span>
         <span className={`badge ${id}`}>{title}</span>
       </h2>
 
@@ -44,15 +44,20 @@ export default function Column({
         />
       </form>
 
-      {tasks.map((task) => (
-        <Card
-          key={task.id}
-          task={task}
-          columnId={id}
-          deleteTask={deleteTask}
-          editTask={editTask}
-        />
-      ))}
+      {/* Empty Message */}
+      {tasks.length === 0 ? (
+        <p className="emptyText">No tasks yet </p>
+      ) : (
+        tasks.map((task) => (
+          <Card
+            key={task.id}
+            task={task}
+            columnId={id}
+            deleteTask={deleteTask}
+            editTask={editTask}
+          />
+        ))
+      )}
     </div>
   );
 }

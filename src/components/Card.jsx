@@ -7,6 +7,14 @@ export default function Card({ task, columnId, deleteTask, editTask }) {
   const onDragStart = (e) => {
     e.dataTransfer.setData("taskId", task.id);
     e.dataTransfer.setData("fromColumnId", columnId);
+
+    // Add drag style
+    e.currentTarget.classList.add("dragging");
+  };
+
+  const onDragEnd = (e) => {
+    // Remove drag style
+    e.currentTarget.classList.remove("dragging");
   };
 
   const handleSave = () => {
@@ -20,9 +28,14 @@ export default function Card({ task, columnId, deleteTask, editTask }) {
   };
 
   return (
-    <div className="card" draggable={!isEditing} onDragStart={onDragStart}>
+    <div
+      className="card"
+      draggable={!isEditing}
+      onDragStart={onDragStart}
+      onDragEnd={onDragEnd}
+    >
       {isEditing ? (
-        <div>
+        <div className="cardEditBox">
           <input
             value={text}
             onChange={(e) => setText(e.target.value)}
@@ -48,9 +61,9 @@ export default function Card({ task, columnId, deleteTask, editTask }) {
         </div>
       ) : (
         <div className="cardRow">
-          <span className="cardText">{task.text}</span>
+          <div className="cardText">{task.text}</div>
 
-          <div className="cardButtonsSmall">
+          <div className="cardActions">
             <button
               className="btnEdit"
               onClick={() => setIsEditing(true)}
@@ -59,7 +72,11 @@ export default function Card({ task, columnId, deleteTask, editTask }) {
               ✏️
             </button>
 
-            <button className="btnDelete" onClick={handleDelete} title="Close">
+            <button
+              className="btnDelete"
+              onClick={handleDelete}
+              title="Delete"
+            >
               ✖
             </button>
           </div>
