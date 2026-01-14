@@ -12,17 +12,17 @@ export default function Column({
 }) {
   const [text, setText] = useState("");
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     addTask(id, text);
     setText("");
   };
 
-  const allowDrop = e => {
+  const allowDrop = (e) => {
     e.preventDefault();
   };
 
-  const onDrop = e => {
+  const onDrop = (e) => {
     const taskId = e.dataTransfer.getData("taskId");
     const fromColumnId = e.dataTransfer.getData("fromColumnId");
     moveTask(taskId, fromColumnId, id);
@@ -35,17 +35,16 @@ export default function Column({
         <span className={`badge ${id}`}>{title}</span>
       </h2>
 
-      {/* ✅ Input field instead of prompt */}
       <form onSubmit={handleSubmit}>
         <input
           value={text}
-          onChange={e => setText(e.target.value)}
+          onChange={(e) => setText(e.target.value)}
           placeholder="Add a task..."
           className="taskInput"
         />
       </form>
 
-      {tasks.map(task => (
+      {tasks.map((task) => (
         <Card
           key={task.id}
           task={task}

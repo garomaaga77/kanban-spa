@@ -5,79 +5,83 @@
 
 body {
   margin: 0;
-  background: #f5f7fb;
-  color: #1f2937;
+  color: #111827;
+
+  /* ✅ Professional soft background */
+  background: linear-gradient(180deg, #f6f8fc 0%, #eef2f7 100%);
 }
 
 .app {
-  max-width: 1200px;
+  max-width: 1250px;
   margin: auto;
-  padding: 24px;
+  padding: 28px;
 }
 
 h1 {
   text-align: center;
   font-size: 42px;
-  font-weight: 800;
+  font-weight: 900;
   margin-bottom: 30px;
-  color: #111827;
+  color: #0f172a;
+  letter-spacing: 0.5px;
 }
 
-/* Board */
+/* ✅ Board layout */
 .board {
   display: flex;
-  gap: 20px;
+  gap: 22px;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
 }
 
-/* Column base */
+/* ✅ Column base style */
 .column {
-  background: white;
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 16px;
-  width: 320px;
-  min-height: 420px;
-  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e5e7eb;
+  width: 340px;
+  min-height: 450px;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.08);
   transition: transform 0.2s ease;
 }
 
 .column:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
 }
 
 .column h2 {
   margin: 0;
   padding-bottom: 12px;
   font-size: 22px;
-  font-weight: 800;
-  border-bottom: 2px solid #f3f4f6;
+  font-weight: 900;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* ✅ Column Colors */
+/* ✅ Professional column background colors */
 .column.todo {
+  background: #fff5f5;
   border-top: 6px solid #ef4444;
 }
 
 .column.progress {
+  background: #fff7ed;
   border-top: 6px solid #f59e0b;
 }
 
 .column.done {
+  background: #f0fdf4;
   border-top: 6px solid #22c55e;
 }
 
 /* ✅ Badge */
 .badge {
-  padding: 4px 10px;
+  padding: 4px 12px;
   border-radius: 999px;
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 900;
   color: white;
 }
 
@@ -93,38 +97,40 @@ h1 {
   background: #22c55e;
 }
 
-/* Input */
+/* ✅ Input */
 .taskInput {
   width: 100%;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #e5e7eb;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.15);
   margin-top: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   outline: none;
+  background: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
 }
 
 .taskInput:focus {
   border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
 }
 
-/* Card */
+/* ✅ Card */
 .card {
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  padding: 12px;
+  border-radius: 14px;
+  margin-bottom: 12px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: grab;
   transition: 0.2s ease;
 }
 
 .card:hover {
-  background: #eef2ff;
-  border-color: #c7d2fe;
   transform: scale(1.02);
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.08);
 }
 
 .card:active {
@@ -134,26 +140,45 @@ h1 {
 .cardRow {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
 }
 
-/* Edit input inside card */
-.editInput {
-  width: 100%;
-  padding: 8px;
-  border-radius: 8px;
-  border: 1px solid #e5e7eb;
-  outline: none;
-  margin-bottom: 10px;
+.cardText {
+  flex: 1;
+  word-break: break-word;
 }
 
-/* Buttons */
+/* ✅ Button container */
+.cardButtonsSmall {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.cardButtons {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+/* ✅ Edit input inside card */
+.editInput {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  outline: none;
+  background: white;
+  font-weight: 700;
+}
+
+/* ✅ Buttons */
 button {
   border: none;
-  border-radius: 10px;
-  padding: 8px 10px;
-  font-weight: 700;
+  border-radius: 12px;
+  padding: 9px 12px;
+  font-weight: 800;
   cursor: pointer;
   transition: 0.2s ease;
 }
@@ -162,17 +187,22 @@ button:hover {
   opacity: 0.9;
 }
 
-.cardButtons {
-  display: flex;
-  gap: 10px;
+/* ✅ Card action buttons */
+.btnEdit {
+  background: #2563eb;
+  color: white;
+  font-size: 13px;
+  padding: 6px 10px;
 }
 
-.cardButtonsSmall {
-  display: flex;
-  gap: 6px;
+.btnDelete {
+  background: #dc2626;
+  color: white;
+  font-size: 13px;
+  padding: 6px 10px;
 }
 
-/* Button Colors */
+/* ✅ Save/Cancel buttons */
 .btnSave {
   background: #16a34a;
   color: white;
@@ -183,14 +213,13 @@ button:hover {
   color: white;
 }
 
-.btnEdit {
-  background: #f59e0b;
-  color: white;
-  padding: 6px 10px;
-}
+/* ✅ Mobile view */
+@media (max-width: 800px) {
+  .column {
+    width: 95%;
+  }
 
-.btnDelete {
-  background: #dc2626;
-  color: white;
-  padding: 6px 10px;
+  h1 {
+    font-size: 30px;
+  }
 }
