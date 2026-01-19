@@ -48,6 +48,60 @@ Persistent task storage using localStorage
 Responsive and user-friendly interface
 
 Single Page Application architecture
+### Key Components
+ ### App.jsx
+
+Root component of the SPA.
+
+Responsible for displaying the application title and rendering the Board component.
+
+Main responsibility: Application entry UI.
+
+### Board.jsx
+
+This component is the core state manager of the application.
+
+Responsibilities:
+
+Stores tasks in three columns (To Do, In Progress, Done)
+
+Controls task creation, editing, deletion, undo deletion
+
+Handles task movement between columns
+
+Saves and restores tasks using localStorage
+
+### Column.jsx
+
+Represents each Kanban column.
+
+Responsibilities:
+
+Displays column title and task counter
+
+Shows input field for adding tasks
+
+Displays tasks as Card components
+
+Shows “No tasks yet” when empty
+
+Supports task dropping for drag-and-drop
+
+### Card.jsx
+
+Represents an individual task card.
+
+Responsibilities:
+
+Displays task text
+
+Provides edit and delete actions
+
+Supports drag events for moving tasks
+
+Includes edit mode with Save/Cancel buttons
+
+Adds visual styling during dragging
 
 # Project Structure
 kanban-spa/
@@ -63,6 +117,50 @@ kanban-spa/
 ├── package.json
 ├── vite.config.js
 └── README.md
+
+### localStorage Flow
+On app load: application checks localStorage and loads saved data.
+On every update: task state is stored automatically.
+This ensures persistence after:
+ refresh
+ closing browser
+reopening the application later
+
+### 7. Installation and Running Instructions
+7.1 Requirements
+
+Node.js installed
+
+npm available in terminal
+
+7.2 Installation
+
+Inside the project folder run:
+
+npm install
+
+7.3 Start Development Server
+npm run dev
+
+7.4 Open Application
+
+Go to:
+
+http://localhost:5173
+
+8. Mobile Device Testing
+
+The application supports mobile testing through network hosting:
+
+npm run dev -- --host
+
+
+Then open the Network URL on a real phone connected to the same Wi-Fi, such as:
+
+http://192.168.1.5:5173
+
+
+On mobile screens, the layout adapts and columns may stack vertically or use horizontal swipe depending on responsive settings.
 
 # Testing
 
