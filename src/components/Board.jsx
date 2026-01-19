@@ -28,7 +28,7 @@ export default function Board() {
     localStorage.setItem("kanban-data", JSON.stringify(columns));
   }, [columns]);
 
-  // ✅ Add Task (Input Field)
+  //  Add Task (Input Field)
   const addTask = (columnId, text) => {
     if (!text.trim()) return;
 
@@ -46,7 +46,7 @@ export default function Board() {
     }));
   };
 
-  // ✅ Delete Task (with Undo support)
+  //  Delete Task (with Undo support)
   const deleteTask = (columnId, taskId) => {
     setColumns(prev => {
       const taskToDelete = prev[columnId].tasks.find(t => t.id === taskId);
@@ -67,7 +67,7 @@ export default function Board() {
     });
   };
 
-  // ✅ Undo Delete
+  //  Undo Delete
   const undoDelete = () => {
     if (!lastDeleted) return;
 
@@ -82,7 +82,7 @@ export default function Board() {
     setLastDeleted(null);
   };
 
-  // ✅ Edit Task
+  //  Edit Task
   const editTask = (columnId, taskId, newText) => {
     if (!newText.trim()) return;
 
@@ -97,7 +97,7 @@ export default function Board() {
     }));
   };
 
-  // ✅ Drag & Drop Move Task
+  //  Drag & Drop Move Task
   const moveTask = (taskId, fromColumnId, toColumnId) => {
     if (fromColumnId === toColumnId) return;
 
@@ -121,7 +121,7 @@ export default function Board() {
 
   return (
     <div>
-      {/* ✅ Undo Delete Button */}
+      {/*  Undo Delete Button */}
       {lastDeleted && (
         <div style={{ textAlign: "center", marginBottom: "15px" }}>
           <button
